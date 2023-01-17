@@ -1,6 +1,6 @@
 <template>
     <div class="enter-screen wrapper">
-        <h1 class="headline enter-screen__headline"> Ready for a gteat <br> User experience?</h1>
+        <h1 class="headline enter-screen__headline"> Ready for a great <br> User experience?</h1>
         <p class="subtitle enter-screen__subtitle">Bring your media to the next level!</p>
 
         <div class="enter-screen__links">
@@ -11,7 +11,7 @@
         </div>
 
         <div class="enter-screen__image">
-            <img src="../../assets/woman.svg" alt="" />
+            <img src="../../assets/img/woman.svg" alt="" />
         </div>
     </div>
 </template>
