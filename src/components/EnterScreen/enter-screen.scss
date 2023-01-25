@@ -4,30 +4,27 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 27px;
 }
 
-.enter-screen__link-signup {
+.enter-screen__link-signup, .enter-screen__link-signin {
     border-radius: $button-border-radius-1;
     padding: 10px 20px;
     border:none;
 }
 
-.enter-screen__link-signin {
-  background-color: black;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .enter-screen__link-signin {
+//   background-color: black;
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 50%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 .subtitle {
     font-size: $subtitle;
-}
-
-.enter-screen__links {
-    margin-top: 27px;
 }
 
 .enter-screen__image {
