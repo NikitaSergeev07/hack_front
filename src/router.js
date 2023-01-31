@@ -1,8 +1,8 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
 
-import MainPage from './components/MainPage/MainPage.vue';
-import SignUp from './components/SignUp/SignUp.vue';
-import SignIn from './components/SignIn/SignIn.vue'
+import MainPage from './components/MainPage.vue';
+import SignUp from './components/SignUp.vue';
+import SignIn from './components/SignIn.vue'
 import EnterScreen from './components/EnterScreen/EnterScreen.vue'
 
 export default createRouter({
