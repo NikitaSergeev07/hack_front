@@ -26,10 +26,9 @@
         </div>
 
     </div>
-    <router-view></router-view>
 </template>
 
-<style>
+<style scoped>
 
 .enter-screen__links {
     display: flex;
