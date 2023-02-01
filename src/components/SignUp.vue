@@ -26,7 +26,7 @@
                     title="Password must contains 8+ symbols, 1 sprcial and 2 capital letters"></i>
                 <input type="password" class="form-control" v-model="form.password" name='password' @blur="validatePassword"
                     :class="{ error: error.password }" />
-                <i class="bi bi-eye-slash icon"></i>
+                <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
                 <p v-if="error.password"> Enter valid password </p>
             </div>
 
@@ -34,7 +34,7 @@
                 <label for="inputConfirmPassword" class="input-wrapper">Repeat Password
                     <input type="password" class="form-control" v-model="form.repeatPassword" name="repeatPassword"
                         @blur="validateConfirmPassword" :class="{ error: error.repeatPassword }" />
-                    <i class="bi bi-eye-slash icon"></i>
+                    <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
                 </label>
                 <p v-if="error.repeatPassword"> Passwords do not match</p>
             </div>
@@ -50,30 +50,8 @@
     </div>
 </template>
 
-
 <script>
 import { isValidName, isValidEmail, isValidPassword, isValidRepeatPasswod } from '../validation.js';
-
-window.addEventListener("load", function () {
-    const showPassword = document.querySelectorAll(".bi-eye-slash");
-
-    showPassword.forEach((item) => {
-        item.addEventListener("click", () => {
-            const getInput = item.previousSibling;
-
-            if (getInput.type === "password") {
-                getInput.type = "text";
-                item.classList.remove("bi-eye-slash");
-                item.classList.add("bi-eye");
-            }
-            else {
-                getInput.type = "password";
-                item.classList.remove("bi-eye");
-                item.classList.add("bi-eye-slash");
-            }
-        });
-    })
-})
 
 export default {
     data() {
@@ -94,6 +72,22 @@ export default {
         }
     },
     methods: {
+        setVisibility(e) {
+            const getSel = e.target;
+            const getInput = getSel.previousSibling;
+            console.log(getSel)
+            
+            if (getInput.type === "password") {
+                getInput.type = "text";
+                getSel.classList.remove("bi-eye-slash");
+                getSel.classList.add("bi-eye");
+            }
+            else {
+                getInput.type = "password";
+                getSel.classList.remove("bi-eye");
+                getSel.classList.add("bi-eye-slash");
+            }
+        },
         addClassInvalid (attr) {
             const getSel = document.querySelector(`input[name="${attr}"]`);
             getSel.classList.add('invalid');
