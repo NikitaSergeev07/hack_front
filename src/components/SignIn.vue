@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label class="input-wrapper">Password
                     <input type="password" class="form-control" />
-                    <i class="bi bi-eye-slash icon"></i>
+                    <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
                 </label>
             </div>
 
@@ -27,6 +27,30 @@
 
     </div>
 </template>
+
+<script> 
+export default {
+    methods: {
+        setVisibility(e) {
+            const getSel = e.target;
+            const getInput = getSel.previousSibling;
+            console.log(getSel)
+            
+            if (getInput.type === "password") {
+                getInput.type = "text";
+                getSel.classList.remove("bi-eye-slash");
+                getSel.classList.add("bi-eye");
+            }
+            else {
+                getInput.type = "password";
+                getSel.classList.remove("bi-eye");
+                getSel.classList.add("bi-eye-slash");
+            }
+        },
+
+    }
+}
+</script>
 
 <style scoped>
 
