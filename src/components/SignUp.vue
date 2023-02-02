@@ -39,7 +39,7 @@
                 <p v-if="error.repeatPassword"> Passwords do not match</p>
             </div>
 
-            <button type="submit" class="btn form__button" @click="sugnUp">Sign Up </button>
+            <button type="submit" class="btn form__button" @click="signUp">Sign Up </button>
         </form>
 
         <div class="options sign-up__options">
@@ -61,7 +61,6 @@ export default {
                 email: '',
                 password: '',
                 repeatPassword: '',
-                valid: false
             },
             error: {
                 username: false,
@@ -75,7 +74,6 @@ export default {
         setVisibility(e) {
             const getSel = e.target;
             const getInput = getSel.previousSibling;
-            console.log(getSel)
             
             if (getInput.type === "password") {
                 getInput.type = "text";
@@ -105,7 +103,6 @@ export default {
             if (this.form[attr].length !== 0) {
                 !isValidName(this.form[attr]) ? this.addClassInvalid(attr) : this.removeClassInvalid(attr);
             }
-            console.log(document.querySelector(`input[name="${attr}"]`))
         },
         validateEmail() {
             const attr = 'email';
@@ -126,7 +123,7 @@ export default {
                 !isValidRepeatPasswod(this.form[attr], this.form[password]) ? this.addClassInvalid(attr) : this.removeClassInvalid(attr);
             }
         },
-        sugnUp() {
+        signUp() {
             const getInputAll = document.querySelectorAll('.error');
 
             const userLength = this.form.username.length > 0;
@@ -146,6 +143,7 @@ export default {
 .error {
     background-color: red;
 }
+
 
 .form-group {
     margin-top: 24px;
