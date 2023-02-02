@@ -1,24 +1,15 @@
-# astralab
+:warning:
+Весь актуальный код находится в ветке develop
 
-## Project setup
-```
-npm install
-```
+Это - клиентская часть SPA, страница регистрации. Собстсвенно, первый проект на vue 3, до которого я знала лишь о существовании данного фреймворка.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Реализовано:
+- 4 фрейма (стартовая, регистрация, логин, основая страницы);
+- переход между фреймами (Vue router);
+- валидация полей (v-model, события);
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+В планах:
+- сделать UI дружелюбнее (пока из интерфейса не понятны требования к полям формы);
+- уйти от дублирования кода при валидации на разных страницах;
+- добавить возможность регистрации.
