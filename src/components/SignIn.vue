@@ -2,24 +2,24 @@
     <div class="sign-in wrapper">
         <h1 class="headline sign-in__headline">Sign In</h1>
 
-        <form action="#/main" class="form sign-in__form">
+        <form action="#/main" class="form sign-in__form" @submit.prevent>
 
             <div class="form-group">
-                <label class="input-wrapper">Email address
-                    <input type="email" class="form-control" v-model="form.email" name="email" @blur="validateEmail"/>
+                <label class="input-wrapper">Email
+                    <input type="email" class="form-control" v-model="form.email" name="email" @blur="validateEmail" :class="{ error: error.email }" />
                 </label>
                 <p v-if="error.email"> Enter valid email </p>
             </div>
 
             <div class="form-group">
                 <label class="input-wrapper">Password
-                    <input type="password" class="form-control" v-model="form.password" name='password' @blur="validatePassword"/>
+                    <input type="password" class="form-control" v-model="form.password" name='password' @blur="validatePassword" :class="{ error: error.password }"/>
                     <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
                 </label>
                 <p v-if="error.password"> Enter valid password </p>
             </div>
 
-            <button type="submit" class="btn form__button">Sign In</button>
+            <button type="submit" class="btn form__button" @click="signIn">Sign In</button>
         </form>
 
         <div class="options sign-up__options .enter-screen__links">
@@ -87,12 +87,10 @@ export default {
         signIn() {
             const getInputAll = document.querySelectorAll('.error');
 
-            const userLength = this.form.username.length > 0;
             const emailLength =  this.form.email.length  > 0;
             const passwordLength = this.form.password.length > 0;
-            const repeatLength = this.form.repeatPassword.length > 0;
 
-            if ((userLength, emailLength, passwordLength, repeatLength) && getInputAll.length === 0) {
+            if (( emailLength, passwordLength) && getInputAll.length === 0) {
                 this.$router.push('main')
         }
         },
@@ -116,7 +114,7 @@ export default {
     border:none;
 }
 
-.invalid {
+.error {
     background-color: red;
 }
 
