@@ -6,15 +6,17 @@
 
             <div class="form-group">
                 <label class="input-wrapper">Email address
-                    <input type="email" class="form-control" />
+                    <input type="email" class="form-control" v-model="form.email" name="email" @blur="validateEmail"/>
                 </label>
+                <p v-if="error.email"> Enter valid email </p>
             </div>
 
             <div class="form-group">
                 <label class="input-wrapper">Password
-                    <input type="password" class="form-control" />
+                    <input type="password" class="form-control" v-model="form.password" name='password' @blur="validatePassword"/>
                     <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
                 </label>
+                <p v-if="error.password"> Enter valid password </p>
             </div>
 
             <button type="submit" class="btn form__button">Sign In</button>
@@ -22,19 +24,32 @@
 
         <div class="options sign-up__options .enter-screen__links">
             <p class="options__description">Don't have an account yet?</p>
-            <button class="enter-screen__link-signin" @click="this.$router.push('/sign-up')">Sign Up</button>
+            <router-link class="options__link" to="/sign-up"> Sign Up </router-link>
         </div>
 
     </div>
 </template>
 
 <script> 
+import { isValidEmail, isValidPassword,  } from '../validation.js';
+
 export default {
+    data() {
+        return {
+            form: {
+                email: '',
+                password: '',
+            },
+            error: {
+                email: false,
+                password: false,
+            }
+        }
+    },
     methods: {
         setVisibility(e) {
             const getSel = e.target;
             const getInput = getSel.previousSibling;
-            console.log(getSel)
             
             if (getInput.type === "password") {
                 getInput.type = "text";
@@ -46,6 +61,40 @@ export default {
                 getSel.classList.remove("bi-eye");
                 getSel.classList.add("bi-eye-slash");
             }
+        },
+        addClassInvalid (attr) {
+            const getSel = document.querySelector(`input[name="${attr}"]`);
+            getSel.classList.add('invalid');
+            this.error[attr] = true;
+        },
+        removeClassInvalid (attr) {
+            const getSel = document.querySelector(`input[name="${attr}"]`);
+            getSel.classList.remove('invalid');
+            this.error[attr] = false;
+        },
+        validateEmail() {
+            const attr = 'email';
+            if (this.form[attr].length !== 0) {
+            !isValidEmail(this.form[attr]) ?  this.addClassInvalid(attr):  this.removeClassInvalid(attr);
+            }
+        },
+        validatePassword() {
+            const attr = 'password'
+            if (this.form[attr].length !== 0) {
+                !isValidPassword(this.form[attr]) ? this.addClassInvalid(attr) : this.removeClassInvalid(attr);
+            }
+        },
+        signIn() {
+            const getInputAll = document.querySelectorAll('.error');
+
+            const userLength = this.form.username.length > 0;
+            const emailLength =  this.form.email.length  > 0;
+            const passwordLength = this.form.password.length > 0;
+            const repeatLength = this.form.repeatPassword.length > 0;
+
+            if ((userLength, emailLength, passwordLength, repeatLength) && getInputAll.length === 0) {
+                this.$router.push('main')
+        }
         },
 
     }
