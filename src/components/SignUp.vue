@@ -2,10 +2,12 @@
     <div class="sign-up wrapper">
         <h1 class="headline sign-up__headline">Sign Up</h1>
 
-        <form class="form sign-up__form"  @submit.prevent>
+        <form class="form sign-up__form" @submit.prevent>
 
             <div class="form-group">
                 <label class="input-wrapper">Full name
+                    <i class="bi bi-question-circle-fill" v-tooltip data-bs-toggle="tooltip" data-bs-placement="bottom"
+                data-bs-title="Field must contains 2 words, 3+ symbols"></i>
                     <input type="text" class="form-control" v-model="form.username" name="username" @blur="validateName"
                         :class="{ error: error.username }" />
                 </label>
@@ -22,10 +24,10 @@
 
             <div class="form-group input-wrapper">
                 <label class="input-wrapper">Password </label>
-                <i class="bi bi-question-circle-fill"
-                    title="Password must contains 8+ symbols, 1 sprcial and 2 capital letters"></i>
-                <input type="password" class="form-control" v-model="form.password" name='password' @blur="validatePassword"
-                    :class="{ error: error.password }" />
+                <i class="bi bi-question-circle-fill" v-tooltip data-bs-toggle="tooltip" data-bs-placement="bottom"
+                data-bs-title="Field must contains 8+ symbols, 1 sprcial and 2 capital letters"></i>
+                <input type="password" class="form-control" v-model="form.password" name='password'
+                    @blur="validatePassword" :class="{ error: error.password }" />
                 <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
                 <p v-if="error.password"> Enter valid password </p>
             </div>
@@ -51,7 +53,7 @@
 </template>
 
 <script>
-import { isValidName, isValidEmail, isValidPassword, isValidRepeatPasswod } from '../validation.js';
+import { isValidName, isValidEmail, isValidPassword, isValidRepeatPasswod } from '../utils/validation.js';
 
 export default {
     data() {
@@ -74,7 +76,7 @@ export default {
         setVisibility(e) {
             const getSel = e.target;
             const getInput = getSel.previousSibling;
-            
+
             if (getInput.type === "password") {
                 getInput.type = "text";
                 getSel.classList.remove("bi-eye-slash");
@@ -86,13 +88,13 @@ export default {
                 getSel.classList.add("bi-eye-slash");
             }
         },
-        addClassInvalid (attr) {
+        addClassInvalid(attr) {
             const getSel = document.querySelector(`input[name="${attr}"]`);
             getSel.classList.add('invalid');
             this.error[attr] = true;
         },
 
-        removeClassInvalid (attr) {
+        removeClassInvalid(attr) {
             const getSel = document.querySelector(`input[name="${attr}"]`);
             getSel.classList.remove('invalid');
             this.error[attr] = false;
@@ -107,7 +109,7 @@ export default {
         validateEmail() {
             const attr = 'email';
             if (this.form[attr].length !== 0) {
-            !isValidEmail(this.form[attr]) ?  this.addClassInvalid(attr):  this.removeClassInvalid(attr);
+                !isValidEmail(this.form[attr]) ? this.addClassInvalid(attr) : this.removeClassInvalid(attr);
             }
         },
         validatePassword() {
@@ -127,19 +129,20 @@ export default {
             const getInputAll = document.querySelectorAll('.error');
 
             const userLength = this.form.username.length > 0;
-            const emailLength =  this.form.email.length  > 0;
+            const emailLength = this.form.email.length > 0;
             const passwordLength = this.form.password.length > 0;
             const repeatLength = this.form.repeatPassword.length > 0;
 
             if ((userLength, emailLength, passwordLength, repeatLength) && getInputAll.length === 0) {
                 this.$router.push('main')
-        }
+            }
         },
     }
 }
 </script>
 
 <style scoped>
+
 .error {
     background-color: red;
 }

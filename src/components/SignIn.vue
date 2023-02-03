@@ -31,7 +31,7 @@
 </template>
 
 <script> 
-import { isValidEmail, isValidPassword,  } from '../validation.js';
+import { isValidEmail, isValidPassword,  } from '../utils/validation.js';
 
 export default {
     data() {
