@@ -7,7 +7,7 @@
             <div class="form-group">
                 <label class="input-wrapper">Full name
                     <i class="bi bi-question-circle-fill" v-tooltip data-bs-toggle="tooltip" data-bs-placement="bottom"
-                data-bs-title="Field must contains 2 words, 3+ symbols"></i>
+                        data-bs-title="Field must contains 2 words, 3+ symbols"></i>
                     <input type="text" class="form-control" v-model="form.username" name="username" @blur="validateName"
                         :class="{ error: error.username }" />
                 </label>
@@ -22,13 +22,14 @@
                 <p v-if="error.email"> Enter valid email </p>
             </div>
 
-            <div class="form-group input-wrapper">
-                <label class="input-wrapper">Password </label>
-                <i class="bi bi-question-circle-fill" v-tooltip data-bs-toggle="tooltip" data-bs-placement="bottom"
-                data-bs-title="Field must contains 8+ symbols, 1 sprcial and 2 capital letters"></i>
-                <input type="password" class="form-control" v-model="form.password" name='password'
-                    @blur="validatePassword" :class="{ error: error.password }" />
-                <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
+            <div class="form-group">
+                <label class="input-wrapper">Password
+                    <i class="bi bi-question-circle-fill" v-tooltip data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        data-bs-title="Field must contains 8+ symbols, 1 sprcial and 2 capital letters"></i>
+                    <input type="password" class="form-control" v-model="form.password" name='password'
+                        @blur="validatePassword" :class="{ error: error.password }" />
+                    <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
+                </label>
                 <p v-if="error.password"> Enter valid password </p>
             </div>
 
@@ -142,7 +143,6 @@ export default {
 </script>
 
 <style scoped>
-
 .error {
     background-color: red;
 }
