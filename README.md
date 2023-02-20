@@ -11,6 +11,12 @@
 - добавить возможность регистрации;
 - ~~сделать UI дружелюбнее (пока из интерфейса не понятны требования к полям формы)~~
 
+:green_circle: Как это выглядит: 
+
+<img src="https://github.com/Idzanaagi/registration-form-vue3-app/blob/master/src/demo/registartion.gif">
+
+Деплой - https://registration-form-vue3-app.vercel.app/#/
+
 :large_blue_circle: Установка:
 - скопировать репозиторий: 
 ```
