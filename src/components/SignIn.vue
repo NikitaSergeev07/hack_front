@@ -8,7 +8,7 @@
                 <label class="input-wrapper">Email
                     <input type="email" class="form-control" v-model="form.email" name="email" @blur="validateEmail" :class="{ error: error.email }" />
                 </label>
-                <p v-if="error.email"> Enter valid email </p>
+                <p v-if="error.email" class="error-message"> Enter valid email </p>
             </div>
 
             <div class="form-group">
@@ -16,7 +16,7 @@
                     <input type="password" class="form-control" v-model="form.password" name='password' @blur="validatePassword" :class="{ error: error.password }"/>
                     <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
                 </label>
-                <p v-if="error.password"> Enter valid password </p>
+                <p v-if="error.password" class="error-message"> Enter valid password </p>
             </div>
 
             <button type="submit" class="btn form__button" @click="signIn">Sign In</button>
@@ -115,7 +115,9 @@ export default {
 }
 
 .error {
-    background-color: red;
+    background: #FF6683;
+    opacity: 0.5;
+    color: white;
 }
 
 .form-group {
@@ -136,6 +138,10 @@ export default {
 .bi-question-circle-fill {
     position: absolute;
     right: 0;
+}
+
+.error-message {
+ color: #FF6683;
 }
 
 </style>
