@@ -101,48 +101,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.enter-screen__links {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 27px;
-}
-
-.enter-screen__link-signup,
-.enter-screen__link-signin {
-    border-radius: 30px;
-    padding: 10px 20px;
-    border: none;
-}
-
-.error {
-    background: #FF6683;
-    opacity: 0.5;
-    color: white;
-}
-
-.form-group {
-    margin-top: 24px;
-}
-
-.input-wrapper {
-    position: relative;
-}
-
-.input-wrapper .icon {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    cursor: pointer;
-}
-
-.bi-question-circle-fill {
-    position: absolute;
-    right: 0;
-}
-
-.error-message {
-    color: #FF6683;
-}
-</style>
+<style scoped></style>

@@ -23,10 +23,6 @@ body {
   justify-content: center;
 }
 
-.wrapper {
-  margin-top: 65px;
-}
-
 .form__button {
   background-color: $dark-layout-0;
   width: 100%;
@@ -46,4 +42,34 @@ body {
 .options__link {
   color: $dark-layout-0;
   margin-bottom: 20px;
+}
+
+.error {
+  background: #FF6683;
+  opacity: 0.5;
+  color: white;
+}
+
+.form-group {
+  margin-top: 24px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper .icon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  cursor: pointer;
+}
+
+.bi-question-circle-fill {
+  position: absolute;
+  right: 0;
+}
+
+.error-message {
+  color: #FF6683;
 }

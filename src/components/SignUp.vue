@@ -142,34 +142,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.error {
-    background: #FF6683;
-    opacity: 0.5;
-    color: white;
-}
-
-.form-group {
-    margin-top: 24px;
-}
-
-.input-wrapper {
-    position: relative;
-}
-
-.input-wrapper .icon {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    cursor: pointer;
-}
-
-.bi-question-circle-fill {
-    position: absolute;
-    right: 0;
-}
-
-.error-message {
-    color: #FF6683;
-}
-</style>
+<style scoped></style>
