@@ -1,20 +1,20 @@
 @import "@/assets/variables.scss";
 
 .enter-screen__links {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .enter-screen__link-signup {
-    border-radius: $button-border-radius-1;
-    padding: 10px 20px;
-    border:none;
+  border-radius: $button-border-radius-1;
+  padding: 10px 20px;
+  border: none;
 }
 
 .router {
-    color: #1E1A3E;
-    text-decoration: none;
+  color: #1e1a3e;
+  text-decoration: none;
 }
 
 .enter-screen__link-signin {
@@ -28,17 +28,17 @@
 }
 
 .subtitle {
-    font-size: $subtitle;
+  font-size: $subtitle;
 }
 
 .enter-screen__links {
-    margin-top: 27px;
+  margin-top: 27px;
 }
 
 .enter-screen__image {
-    margin-top: 33px;
+  margin-top: 33px;
 }
 
 .bi-arrow-right {
-    color: whitesmoke;
+  color: whitesmoke;
 }

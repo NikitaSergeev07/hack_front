@@ -6,14 +6,16 @@
 
             <div class="form-group">
                 <label class="input-wrapper">Email
-                    <input type="email" class="form-control" v-model="form.email" name="email" @blur="validateEmail" :class="{ error: error.email }" />
+                    <input type="email" class="form-control" v-model="form.email" name="email" @blur="validateEmail"
+                        :class="{ error: error.email }" />
                 </label>
                 <p v-if="error.email" class="error-message"> Enter valid email </p>
             </div>
 
             <div class="form-group">
                 <label class="input-wrapper">Password
-                    <input type="password" class="form-control" v-model="form.password" name='password' @blur="validatePassword" :class="{ error: error.password }"/>
+                    <input type="password" class="form-control" v-model="form.password" name='password'
+                        @blur="validatePassword" :class="{ error: error.password }" />
                     <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
                 </label>
                 <p v-if="error.password" class="error-message"> Enter valid password </p>
@@ -30,8 +32,8 @@
     </div>
 </template>
 
-<script> 
-import { isValidEmail, isValidPassword,  } from '../utils/validation.js';
+<script>
+import { isValidEmail, isValidPassword, } from '../utils/validation.js';
 
 export default {
     data() {
@@ -50,7 +52,7 @@ export default {
         setVisibility(e) {
             const getSel = e.target;
             const getInput = getSel.previousSibling;
-            
+
             if (getInput.type === "password") {
                 getInput.type = "text";
                 getSel.classList.remove("bi-eye-slash");
@@ -62,12 +64,12 @@ export default {
                 getSel.classList.add("bi-eye-slash");
             }
         },
-        addClassInvalid (attr) {
+        addClassInvalid(attr) {
             const getSel = document.querySelector(`input[name="${attr}"]`);
             getSel.classList.add('invalid');
             this.error[attr] = true;
         },
-        removeClassInvalid (attr) {
+        removeClassInvalid(attr) {
             const getSel = document.querySelector(`input[name="${attr}"]`);
             getSel.classList.remove('invalid');
             this.error[attr] = false;
@@ -75,7 +77,7 @@ export default {
         validateEmail() {
             const attr = 'email';
             if (this.form[attr].length !== 0) {
-            !isValidEmail(this.form[attr]) ?  this.addClassInvalid(attr):  this.removeClassInvalid(attr);
+                !isValidEmail(this.form[attr]) ? this.addClassInvalid(attr) : this.removeClassInvalid(attr);
             }
         },
         validatePassword() {
@@ -87,12 +89,12 @@ export default {
         signIn() {
             const getInputAll = document.querySelectorAll('.error');
 
-            const emailLength =  this.form.email.length  > 0;
+            const emailLength = this.form.email.length > 0;
             const passwordLength = this.form.password.length > 0;
 
-            if (( emailLength, passwordLength) && getInputAll.length === 0) {
+            if ((emailLength, passwordLength) && getInputAll.length === 0) {
                 this.$router.push('main')
-        }
+            }
         },
 
     }
@@ -100,7 +102,6 @@ export default {
 </script>
 
 <style scoped>
-
 .enter-screen__links {
     display: flex;
     justify-content: space-evenly;
@@ -108,10 +109,11 @@ export default {
     margin-top: 27px;
 }
 
-.enter-screen__link-signup, .enter-screen__link-signin {
+.enter-screen__link-signup,
+.enter-screen__link-signin {
     border-radius: 30px;
     padding: 10px 20px;
-    border:none;
+    border: none;
 }
 
 .error {
@@ -141,7 +143,6 @@ export default {
 }
 
 .error-message {
- color: #FF6683;
+    color: #FF6683;
 }
-
 </style>

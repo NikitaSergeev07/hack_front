@@ -168,7 +168,8 @@ export default {
     position: absolute;
     right: 0;
 }
+
 .error-message {
- color: #FF6683;
+    color: #FF6683;
 }
 </style>
