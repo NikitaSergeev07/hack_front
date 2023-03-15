@@ -11,7 +11,7 @@
                     <input type="text" class="form-control" v-model="form.username" name="username" @blur="validateName"
                         :class="{ error: error.username }" />
                 </label>
-                <p v-if="error.username"> Enter valid name</p>
+                <p v-if="error.username" class="error-message"> Enter valid name</p>
             </div>
 
             <div class="form-group">
@@ -19,7 +19,7 @@
                     <input type="email" class="form-control" v-model="form.email" name="email" @blur="validateEmail"
                         :class="{ error: error.email }" />
                 </label>
-                <p v-if="error.email"> Enter valid email </p>
+                <p v-if="error.email" class="error-message"> Enter valid email </p>
             </div>
 
             <div class="form-group">
@@ -30,7 +30,7 @@
                         @blur="validatePassword" :class="{ error: error.password }" />
                     <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
                 </label>
-                <p v-if="error.password"> Enter valid password </p>
+                <p v-if="error.password" class="error-message"> Enter valid password </p>
             </div>
 
             <div class="form-group">
@@ -39,7 +39,7 @@
                         @blur="validateConfirmPassword" :class="{ error: error.repeatPassword }" />
                     <i class="bi bi-eye-slash icon" @click="setVisibility"></i>
                 </label>
-                <p v-if="error.repeatPassword"> Passwords do not match</p>
+                <p v-if="error.repeatPassword" class="error-message"> Passwords do not match</p>
             </div>
 
             <button type="submit" class="btn form__button" @click="signUp">Sign Up </button>
@@ -144,9 +144,10 @@ export default {
 
 <style scoped>
 .error {
-    background-color: red;
+    background: #FF6683;
+    opacity: 0.5;
+    color: white;
 }
-
 
 .form-group {
     margin-top: 24px;
@@ -166,5 +167,8 @@ export default {
 .bi-question-circle-fill {
     position: absolute;
     right: 0;
+}
+.error-message {
+ color: #FF6683;
 }
 </style>
