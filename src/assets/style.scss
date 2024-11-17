@@ -2,13 +2,21 @@
 @import "normalize.css";
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
 
-body {
-  color: $dark-layout-0;
-  font-family: Inter;
-  background-color: $dark-layout-1;
-  display: flex;
-  justify-content: center;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+
+main {
+  flex: 1 0 auto; /* Основное содержимое растягивается */
+  overflow-y: auto; /* Позволяет прокрутку только в основном блоке при необходимости */
+}
+
+
+
+
+
 
 .headline {
   font-size: $headline;
@@ -24,12 +32,17 @@ body {
 }
 
 .form__button {
-  background-color: $dark-layout-0;
+  background-color: $button-background;
   width: 100%;
   border-radius: $button-border-radius-1;
   margin: 30px 0 0 0;
   color: #fff;
   padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.form__button:hover {
+  background-color: $button-hover;
 }
 
 .options {
@@ -40,15 +53,38 @@ body {
 }
 
 .options__link {
-  color: $dark-layout-0;
+  color: $highlight;
   margin-bottom: 20px;
 }
 
 .error {
-  background: #FF6683;
-  opacity: 0.5;
-  color: white;
+  background: $error-background;
+  opacity: 0.9;
+  color: $error-text;
 }
+.header, .footer {
+  width: 100%; /* Full width */
+  margin: 0;
+  padding: 10px; /* Adjust padding as needed */
+  color: #ffffff; /* White text color */
+}
+
+.header {
+  background-color: #a8d0e6; /* Soft pastel blue for the header */
+}
+
+.footer {
+  background-color: #d3c0cd; /* Muted pastel lavender for the footer */
+  text-align: center; /* Center text in footer */
+}
+
+.container {
+  max-width: 1200px; /* Установите максимальную ширину контейнера */
+  margin: 0 auto; /* Центрирование контейнера */
+}
+
+
+
 
 .form-group {
   margin-top: 24px;
@@ -71,5 +107,5 @@ body {
 }
 
 .error-message {
-  color: #FF6683;
+  color: $error-text;
 }

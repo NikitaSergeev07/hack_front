@@ -1,17 +1,9 @@
 <template>
   <div class="layout-container">
-    <header class="header">
-      <nav class="navbar">
-        <ul class="navbar__menu">
-          <li class="navbar__item"><a href="/home" class="navbar__link">Главная</a></li>
-          <li class="navbar__item"><a href="/selector" class="navbar__link">Настроение</a></li>
-          <li class="navbar__item"><a href="/history" class="navbar__link">История</a></li>
-        </ul>
-      </nav>
-    </header>
+    <AppHeader></AppHeader>
 
     <div class="home-page">
-      <h1>Привет, {{ userName }}!</h1>
+      <h1>Привет!</h1>
 
       <p class="welcome-text">
         Добро пожаловать в наш семейный дневник эмоций!<br><br>
@@ -21,37 +13,26 @@
       </p>
 
       <div class="button-container">
-        <button class="btn btn-bright">Детальный анализ</button>
-        <button class="btn btn-light">Поверхностный анализ</button>
+        <button class="btn btn-fight">
+          <router-link to="/detailed" class="router"> Детальный анализ</router-link>
+        </button>
+
+        <button class="btn btn-bright">
+          <router-link to="/selector" class="router"> Поверхностный анализ</router-link>
+        </button>
       </div>
     </div>
 
-    <footer class="footer">
-      <p>© 2024 FamiVibes. Все права защищены.</p>
-    </footer>
+    <AppFooter></AppFooter>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      userName: ''  // Имя пользователя будет установлено, если он авторизован
-    };
-  },
-  mounted() {
-    // Проверка наличия данных пользователя в localStorage
-    const user = localStorage.getItem('user');
+import AppHeader from "@/components/AppHeader.vue";
+import AppFooter from "@/components/AppFooter.vue";
 
-    if (!user) {
-      // Если данных нет, перенаправляем на страницу логина
-      this.$router.push('/sign-in');
-    } else {
-      // Если данные есть, парсим и устанавливаем имя пользователя
-      const parsedUser = JSON.parse(user);
-      this.userName = parsedUser.name;  // Здесь можно получить имя пользователя или другие данные
-    }
-  }
+export default {
+  components: {AppFooter, AppHeader},
 }
 </script>
 
@@ -62,45 +43,7 @@ export default {
   min-height: 100vh;
 }
 
-.header, .footer {
-  width: 100%; /* Full width */
-  margin: 0;
-  padding: 10px; /* Adjust padding as needed */
-  color: #ffffff; /* White text color */
-}
 
-.header {
-  background-color: #a8d0e6; /* Soft pastel blue for the header */
-}
-
-.footer {
-  background-color: #d3c0cd; /* Muted pastel lavender for the footer */
-  text-align: center; /* Center text in footer */
-}
-
-.navbar {
-  display: flex;
-  justify-content: center;
-}
-
-.navbar__menu {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin: 0;
-}
-
-.navbar__item {
-  font-size: 1.2rem;
-}
-
-.navbar__link {
-  color: #ffffff;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
 
 .navbar__link:hover {
   background-color: #f2a1d1; /* Slightly contrasting hover effect */
@@ -133,6 +76,11 @@ export default {
 }
 
 .btn-bright {
+  background-color: #E9CEC1; /* Bright pastel blue */
+  color: white;
+}
+
+.btn-fight {
   background-color: #a8d0e6; /* Bright pastel blue */
   color: white;
 }

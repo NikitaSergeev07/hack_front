@@ -32,7 +32,17 @@
 }
 
 .enter-screen__links {
-  margin-top: 27px;
+  display: flex;
+  justify-content: center; /* Центрирование кнопок */
+  align-items: center;
+  gap: 10px; /* Расстояние между кнопками, измените значение по необходимости */
+}
+
+.enter-screen__image {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Центрирует изображение вертикально */
+  margin-top: 33px;
 }
 
 .enter-screen__image {

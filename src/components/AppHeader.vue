@@ -13,7 +13,7 @@
 
 <style scoped>
 .header {
-  background-color: #a8d0e6;
+  background-color: #977E73;
   padding: 10px;
   color: #ffffff;
   position: relative;
