@@ -22,7 +22,7 @@
 :large_blue_circle: Установка:
 - скопировать репозиторий: 
 ```
-[https://github.com/NikitaSergeev07/hack_front.git]
+git clone https://github.com/NikitaSergeev07/hack_front.git
 ```
 - в папке проекта установить зависимости:
 ```
