@@ -22,7 +22,7 @@
 :large_blue_circle: Установка:
 - скопировать репозиторий: 
 ```
-git@github.com:Idzanaagi/registration-form-vue3-app.git
+[https://github.com/NikitaSergeev07/hack_front.git]
 ```
 - в папке проекта установить зависимости:
 ```
